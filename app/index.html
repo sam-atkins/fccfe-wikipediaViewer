@@ -1,38 +1,36 @@
 <!doctype html>
 <html lang="">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Wikipedia Viewer</title>
-
-
     <!-- Place favicon.ico in the root directory -->
-
     <!-- build:css styles/vendor.css -->
     <!-- bower:css -->
     <!-- endbower -->
     <!-- endbuild -->
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <!-- build:css styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
-    
-  </head>
-  <body>
+</head>
+
+<body>
     <!--[if lt IE 10]>
       <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
-    
-
-    
+    <!-- main div starts here -->
+    <div class="container-fluid text-center">
+        <p><a href="https://en.wikipedia.org/wiki/Special:Random" target="_blank" title="Link to a random article">Click here for a random article</a></p>
+    </div>
     <!-- footer starts here -->
     <div class="container">
-            <hr>
-            <footer class="footer">
+        <footer class="footer">
             <div class="container-fluid text-center">
                 <div class="footer-text text-muted row">
-                    <p>Built with ♥ by <a href="https://github.com/cubiio">Cubiio</a>. View source code on <a href="https://github.com/cubiio/fccfe-wikipediaViewer">Github</a></p> 
+                    <p>Built with ♥ by <a href="https://github.com/cubiio" target="_blank">Cubiio</a>. View source code on <a href="https://github.com/cubiio/fccfe-wikipediaViewer" target="_blank">Github</a></p>
                 </div>
                 <div class="footer-logos row">
                     <a href="https://github.com/cubiio" target="_blank"><i class="fa fa-github fa-lg"></i></a>
@@ -44,15 +42,12 @@
                 </div>
             </div>
         </footer>
-     </div> 
-
-
+    </div>
     <!-- build:js scripts/vendor.js -->
     <!-- bower:js -->
     <script src="/bower_components/jquery/dist/jquery.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
-    
     <!-- build:js scripts/plugins.js -->
     <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/affix.js"></script>
     <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/alert.js"></script>
@@ -67,9 +62,9 @@
     <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/collapse.js"></script>
     <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/tab.js"></script>
     <!-- endbuild -->
-    
     <!-- build:js scripts/main.js -->
     <script src="scripts/main.js"></script>
     <!-- endbuild -->
-  </body>
+</body>
+
 </html>
