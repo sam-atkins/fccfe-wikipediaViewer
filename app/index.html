@@ -11,6 +11,7 @@
     <!-- bower:css -->
     <!-- endbower -->
     <!-- endbuild -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <!-- build:css styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
@@ -22,49 +23,61 @@
       <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
     <!-- main div starts here -->
-    <div class="container-fluid text-center">
-        <p><a href="https://en.wikipedia.org/wiki/Special:Random" target="_blank" title="Link to a random article">Click here for a random article</a></p>
-    </div>
-    <!-- footer starts here -->
-    <div class="container">
-        <footer class="footer">
-            <div class="container-fluid text-center">
-                <div class="footer-text text-muted row">
-                    <p>Built with ♥ by <a href="https://github.com/cubiio" target="_blank">Cubiio</a>. View source code on <a href="https://github.com/cubiio/fccfe-wikipediaViewer" target="_blank">Github</a></p>
-                </div>
-                <div class="footer-logos row">
-                    <a href="https://github.com/cubiio" target="_blank"><i class="fa fa-github fa-lg"></i></a>
-                    <a href="http://freecodecamp.com/cubiio" target="_blank"><i class="fa fa-fire fa-lg"></i></a>
-                    <a href="https://www.linkedin.com/in/atkinssam" target="_blank"><i class="fa fa-linkedin fa-lg"></i></a>
-                    <a href="https://twitter.com/cubiio" target="_blank"><i class="fa fa-twitter fa-lg"></i></a>
-                    <a href="http://stackoverflow.com/story/samatkins" target="_blank"><i class="fa fa-stack-overflow fa-lg"></i></a>
-                    <a href="https://cubiio.github.io/" target="_blank"><i class="fa fa-pencil-square fa-lg"></i></a>
-                </div>
+    <div class="container-fluid" id="search-div">
+        <div class="buttons">
+            <!-- <button type="button" class="btn btn-primary">Search</button> -->
+            <div class="input-group">
+                <input id="userSearch" type="text" class="form-control" placeholder="Search for...">
+                <span class="input-group-btn">
+                <button class="btn btn-primary" type="button" onclick="doWikiSearch()" >Search</button>
+                </span>
+                <span>
+                <a class="btn btn-default" href="https://en.wikipedia.org/wiki/Special:Random" target="_blank" role="button-success">Random</a>
+                </span>
             </div>
-        </footer>
-    </div>
-    <!-- build:js scripts/vendor.js -->
-    <!-- bower:js -->
-    <script src="/bower_components/jquery/dist/jquery.js"></script>
-    <!-- endbower -->
-    <!-- endbuild -->
-    <!-- build:js scripts/plugins.js -->
-    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/affix.js"></script>
-    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/alert.js"></script>
-    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/dropdown.js"></script>
-    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/tooltip.js"></script>
-    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/modal.js"></script>
-    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/transition.js"></script>
-    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/button.js"></script>
-    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/popover.js"></script>
-    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/carousel.js"></script>
-    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/scrollspy.js"></script>
-    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/collapse.js"></script>
-    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/tab.js"></script>
-    <!-- endbuild -->
-    <!-- build:js scripts/main.js -->
-    <script src="scripts/main.js"></script>
-    <!-- endbuild -->
+            <!-- <p><a href="https://en.wikipedia.org/wiki/Special:Random" target="_blank" title="Link to a random article">Click here for a random article</a></p> -->
+        </div>
+        <!-- footer starts here -->
+    <div class="container">
+        <hr>
+            <footer class="footer">
+                <div class="container-fluid text-center">
+                    <div class="footer-text text-muted row">
+                        <p>Built with ♥ by <a href="https://github.com/cubiio" target="_blank">Cubiio</a>. View source code on <a href="https://github.com/cubiio/fccfe-wikipediaViewer" target="_blank">Github</a></p>
+                    </div>
+                    <div class="footer-logos row">
+                        <a href="https://github.com/cubiio" target="_blank"><i class="fa fa-github fa-lg"></i></a>
+                        <a href="http://freecodecamp.com/cubiio" target="_blank"><i class="fa fa-fire fa-lg"></i></a>
+                        <a href="https://www.linkedin.com/in/atkinssam" target="_blank"><i class="fa fa-linkedin fa-lg"></i></a>
+                        <a href="https://twitter.com/cubiio" target="_blank"><i class="fa fa-twitter fa-lg"></i></a>
+                        <a href="http://stackoverflow.com/story/samatkins" target="_blank"><i class="fa fa-stack-overflow fa-lg"></i></a>
+                        <a href="https://cubiio.github.io/" target="_blank"><i class="fa fa-pencil-square fa-lg"></i></a>
+                    </div>
+                </div>
+            </footer>
+        </div>
+        <!-- build:js scripts/vendor.js -->
+        <!-- bower:js -->
+        <script src="/bower_components/jquery/dist/jquery.js"></script>
+        <!-- endbower -->
+        <!-- endbuild -->
+        <!-- build:js scripts/plugins.js -->
+        <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/affix.js"></script>
+        <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/alert.js"></script>
+        <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/dropdown.js"></script>
+        <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/tooltip.js"></script>
+        <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/modal.js"></script>
+        <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/transition.js"></script>
+        <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/button.js"></script>
+        <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/popover.js"></script>
+        <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/carousel.js"></script>
+        <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/scrollspy.js"></script>
+        <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/collapse.js"></script>
+        <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/tab.js"></script>
+        <!-- endbuild -->
+        <!-- build:js scripts/main.js -->
+        <script src="scripts/main.js"></script>
+        <!-- endbuild -->
 </body>
 
 </html>
