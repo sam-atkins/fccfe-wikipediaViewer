@@ -51,15 +51,15 @@ function displaySearch(searchResults) {
 	for (var i = 0; i < searchResults.query.search.length; i++) {
 		console.log(searchResults.query.search[i].title); 			// use to test; TODO remove once OK
 		console.log(searchResults.query.search[i].snippet);			// use to test; TODO remove once OK
+		console.log(buildWikiURL(searchResults.query.search[i].title));
 	}
 	// buildWikiURL(getKeyword);
 }
 
-function buildWikiURL(getKeyword) {
-	var keyword = getKeyword();
-	keyword = keyword.replace(/ /g,"_");
-	// console.log(keyword);										// use to test; TODO remove once OK
-	var wikiURL = "https://en.wikipedia.org/wiki/" + keyword;
+function buildWikiURL(searchTitle) {
+	var articleTitle = searchTitle;
+	articleTitle = articleTitle.replace(/ /g,"_");
+	var wikiURL = "https://en.wikipedia.org/wiki/" + articleTitle;
 	// console.log(wikiURL);										// use to test; TODO remove once OK
 	return wikiURL;
 }
