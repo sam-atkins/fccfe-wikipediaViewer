@@ -57,30 +57,31 @@ function displaySearch(searchResults) {
 	// loop to display search results
 	for (var i = 0; i < searchResults.query.search.length; i++) {
 
+		// Displays article title
 		var h2 = document.createElement("h2");
 		h2.innerHTML = searchResults.query.search[i].title;
 		searchList.appendChild(h2);
 		
+		// Displays article snippet
 		var p = document.createElement("p");
   		p.innerHTML = searchResults.query.search[i].snippet;
   		searchList.appendChild(p);
 		
+		// Displays URL to article on Wikipedia
 		var url = document.createElement("a");
-		url.innerHTML = (buildWikiURL(searchResults.query.search[i].title));
+		url.href = buildWikiURL(searchResults.query.search[i].title);
+		url.target = "_blank";
+		url.innerHTML = "Read more on Wikipedia";
 		searchList.appendChild(url);
 
-
-		// document.getElementById("placeholder").innerHTML = searchResults.query.search[i].title;
-		// document.getElementById("placeholder").innerHTML = searchResults.query.search[i].snippet;
-		// document.getElementById("placeholder").innerHTML = (buildWikiURL(searchResults.query.search[i].title));
-		console.log(searchResults.query.search[i].title); 			// use to test; TODO remove once OK
-		console.log(searchResults.query.search[i].snippet);			// use to test; TODO remove once OK
-		console.log(buildWikiURL(searchResults.query.search[i].title));
-		// TODO add url to go back to the main search screen
+		// console logs for testing purposes
+		// console.log(searchResults.query.search[i].title);
+		// console.log(searchResults.query.search[i].snippet);
+		// console.log(buildWikiURL(searchResults.query.search[i].title))
 	}
 }
 
-// a hack as AJAX doesn't return a URL, so this function builds
+// a hack as ajax doesn't return a URL, so this function builds
 // a URL based on the wiki article title returned by the ajax call
 function buildWikiURL(searchTitle) {
 	var articleTitle = searchTitle;
