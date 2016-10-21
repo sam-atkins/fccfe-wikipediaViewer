@@ -22,22 +22,24 @@
     <!--[if lt IE 10]>
       <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
+  
     <!-- Search div starts here -->
+  
     <div class="container-fluid" id="search">
-        <div class="buttons">
+        <div class="buttons col-xs-12">
             <!-- <button type="button" class="btn btn-primary">Search</button> -->
             <div class="input-group">
-                <input id="userSearch" type="text" class="form-control" placeholder="Search for...">
+                <input id="userSearch" type="text" class="form-control" placeholder="Search on Wikipedia...">
                 <span class="input-group-btn">
                 <button class="btn btn-primary" id="search-btn" type="button" onclick="doWikiSearch()" >Search</button>
                 </span>
-                <span>
-                <a class="btn btn-default" href="https://en.wikipedia.org/wiki/Special:Random" target="_blank" role="button-success">Random</a>
+                <span  class="input-group-btn">
+                <a class="btn btn-warning" id="random-btn" href="https://en.wikipedia.org/wiki/Special:Random" target="_blank">Random</a>
                 </span>
             </div>
-            <!-- <p><a href="https://en.wikipedia.org/wiki/Special:Random" target="_blank" title="Link to a random article">Click here for a random article</a></p> -->
         </div>
     </div>
+    
     <!-- Display results div starts here -->
     <div class="container-fluid" id='display-results'>
         <p> <a href="http://fccwikipediaviewer.surge.sh/" title="returns to search screen">Search again</a> </p>
@@ -46,8 +48,9 @@
     </div>
     <!-- footer starts here -->
     <div class="container">
-        <hr>
+       
         <footer class="footer">
+         <hr>
             <div class="container-fluid text-center">
                 <div class="footer-text text-muted row">
                     <p>Built with ♥ by <a href="https://github.com/cubiio" target="_blank">Cubiio</a>. View source code on <a href="https://github.com/cubiio/fccfe-wikipediaViewer" target="_blank">Github</a></p>

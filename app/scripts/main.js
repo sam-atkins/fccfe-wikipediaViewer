@@ -103,6 +103,6 @@ function buildWikiURL(searchTitle) {
 // once a search is made by the user, this function hides the search
 // and displays the results instead
 function changeDisplay() {
-    document.getElementById("search").style.visibility = "hidden";
+    document.getElementById("search").remove();
     document.getElementById("display-results").style.display = "block";
 }

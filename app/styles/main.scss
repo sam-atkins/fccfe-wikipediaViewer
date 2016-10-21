@@ -4,6 +4,24 @@ $icon-font-path: '../fonts/';
 @import "bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
 // endbower
 
+body {
+     position: relative;
+}
+
+#userSearch {
+    margin-top: 20em;
+}
+
+#search-btn {
+  margin-right: 0.5em;
+  margin-left: 0.5em;
+  margin-top: 20em;
+}
+
+#random-btn {
+  margin-top: 20em;
+}
+
 #display-results {
   display: none;
 }
@@ -15,6 +33,10 @@ $icon-font-path: '../fonts/';
   padding: 0.2em 0;
 }
 
+.footer {
+  margin-top: 10em;
+  margin-bottom: 5em;
+}
 .footer-logos .fa{
   padding-right: 0.5em;
 }
