@@ -5,6 +5,7 @@ const browserSync = require('browser-sync');
 const del = require('del');
 const wiredep = require('wiredep').stream;
 const runSequence = require('run-sequence');
+const surge = require('gulp-surge')
 
 const $ = gulpLoadPlugins();
 const reload = browserSync.reload;
@@ -162,9 +163,17 @@ gulp.task('wiredep', () => {
     .pipe(gulp.dest('app'));
 });
 
-gulp.task('build', ['lint', 'html', 'images', 'fonts', 'extras'], () => {
+// removed link task from 'build'
+gulp.task('build', ['html', 'images', 'fonts', 'extras'], () => {
   return gulp.src('dist/**/*').pipe($.size({title: 'build', gzip: true}));
 });
+
+gulp.task('deploy', [], function () {
+  return surge({
+    project: './dist/',         // Path to dist directory
+    domain: 'http://fccwikipediaviewer.surge.sh/'  // url to Surge demo
+  })
+})
 
 gulp.task('default', () => {
   runSequence(['clean', 'wiredep'], 'build');
