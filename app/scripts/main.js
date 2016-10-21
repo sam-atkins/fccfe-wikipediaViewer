@@ -51,8 +51,28 @@ function displaySearch(searchResults) {
 	// call the function to hide / show divs here
 	changeDisplay();
 
+	// TODO: add description
+	var searchList = document.getElementById("placeholder");
+
 	// loop to display search results
 	for (var i = 0; i < searchResults.query.search.length; i++) {
+
+		var h2 = document.createElement("h2");
+		h2.innerHTML = searchResults.query.search[i].title;
+		searchList.appendChild(h2);
+		
+		var p = document.createElement("p");
+  		p.innerHTML = searchResults.query.search[i].snippet;
+  		searchList.appendChild(p);
+		
+		var url = document.createElement("a");
+		url.innerHTML = (buildWikiURL(searchResults.query.search[i].title));
+		searchList.appendChild(url);
+
+
+		// document.getElementById("placeholder").innerHTML = searchResults.query.search[i].title;
+		// document.getElementById("placeholder").innerHTML = searchResults.query.search[i].snippet;
+		// document.getElementById("placeholder").innerHTML = (buildWikiURL(searchResults.query.search[i].title));
 		console.log(searchResults.query.search[i].title); 			// use to test; TODO remove once OK
 		console.log(searchResults.query.search[i].snippet);			// use to test; TODO remove once OK
 		console.log(buildWikiURL(searchResults.query.search[i].title));
