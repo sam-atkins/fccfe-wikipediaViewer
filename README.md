@@ -14,15 +14,15 @@ Further info on the challenge is [here](https://www.freecodecamp.com/challenges/
 
 
 ## Status
-*Work in progress*
+*Complete*
 
 
 ## Built with:
 - HTML
-- CSS / SASS
+- CSS
 - Bootstrap
 - Javascript
-- jQuery (?)
+- jQuery (for the AJAX call only)
 - Yeoman to scaffold the project
 - Gulp to automate tasks
 
@@ -30,12 +30,23 @@ Source code is located in the [app](https://github.com/cubiio/fccfe-wikipediaVie
 
 ## Demo
 
-Not yet live / The demo can be found [here](#url). 
+The demo can be found [here](http://fccwikipediaviewer.surge.sh/), hosted on [surge.sh](https://surge.sh/).
 
-TODO: Add URL once demo is live (gh-pages or surge.sh?)
+Getting the site live and updating the site is really straightforward:
 
+```
+// change directory to the project 
+cd wikipediaViewer 
 
+// run gulp to build the site to dist
+gulp build
 
+// changed directory to dist
+cd dist
 
+// run surge to publish (assumes surge is installed globally) 
+surge
+```
 
+Alternatively, run `gulp deploy` (making sure there is a build in the `.dist/` folder) with reference to [this](https://github.com/surge-sh/gulp-surge) to use Surge with Gulp.
 
