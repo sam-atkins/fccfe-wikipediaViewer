@@ -13,6 +13,18 @@ function getKeyword() {
     }
 }
 
+// detects if 'enter' is hit when user searches
+// http://stackoverflow.com/questions/155188/trigger-a-button-click-with-javascript-on-the-enter-key-in-a-text-box
+window.onload = function() {
+	document.getElementById("userSearch") 				// id of textbox
+	.addEventListener("keyup", function(event) {
+    event.preventDefault();
+    if (event.keyCode == 13) {
+        document.getElementById("search-btn").click();	// id of search button
+    }
+})
+}
+
 // function wrapper for the ajax call. Only calls if a keyword 
 function doWikiSearch() {
     var keyword = getKeyword();
