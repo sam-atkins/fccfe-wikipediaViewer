@@ -44,22 +44,26 @@ function doWikiSearch() {
     }
 }
 
+// takes the search results from the ajax call and
+// loops through to build and display the search results
 function displaySearch(searchResults) {
-	// var wikiURL = buildWikiURL(searchResults);
-	// console.log(searchResults.query.search[0].title);			// use to test; TODO remove once OK
 
+	// add call for function to hide / show divs here
+	// code here
+
+	// loop to display search results
 	for (var i = 0; i < searchResults.query.search.length; i++) {
 		console.log(searchResults.query.search[i].title); 			// use to test; TODO remove once OK
 		console.log(searchResults.query.search[i].snippet);			// use to test; TODO remove once OK
 		console.log(buildWikiURL(searchResults.query.search[i].title));
 	}
-	// buildWikiURL(getKeyword);
 }
 
+// a hack as AJAX doesn't return a URL, so this function builds
+// a URL based on the wiki article title returned by the ajax call
 function buildWikiURL(searchTitle) {
 	var articleTitle = searchTitle;
 	articleTitle = articleTitle.replace(/ /g,"_");
 	var wikiURL = "https://en.wikipedia.org/wiki/" + articleTitle;
-	// console.log(wikiURL);										// use to test; TODO remove once OK
 	return wikiURL;
 }
