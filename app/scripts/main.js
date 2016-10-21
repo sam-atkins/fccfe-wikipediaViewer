@@ -9,7 +9,6 @@ function getKeyword() {
     if (userSearch.value.length < 1) {
         confirm("Please enter a keyword to search");
     } else {
-        // return console.log(keyword); // use to test; TODO remove once OK
         return keyword;
     }
 }
@@ -33,7 +32,6 @@ function doWikiSearch() {
             },
             dataType: "jsonp",
             success: function(searchResults) {
-                // console.log(searchResults); 						// use to test; TODO remove once OK
                 displaySearch(searchResults);
             },
             xhrFields: {
@@ -51,7 +49,7 @@ function displaySearch(searchResults) {
 	// call the function to hide / show divs here
 	changeDisplay();
 
-	// TODO: add description
+	// variable used to append json to the placeholder element
 	var searchList = document.getElementById("placeholder");
 
 	// loop to display search results
@@ -75,9 +73,9 @@ function displaySearch(searchResults) {
 		searchList.appendChild(url);
 
 		// console logs for testing purposes
-		// console.log(searchResults.query.search[i].title);
-		// console.log(searchResults.query.search[i].snippet);
-		// console.log(buildWikiURL(searchResults.query.search[i].title))
+			// console.log(searchResults.query.search[i].title);
+			// console.log(searchResults.query.search[i].snippet);
+			// console.log(buildWikiURL(searchResults.query.search[i].title))
 	}
 }
 
