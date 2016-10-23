@@ -67,24 +67,21 @@ function displaySearch(searchResults) {
     // loop to display search results
     for (var i = 0; i < searchResults.query.search.length; i++) {
 
-        // Displays article title
-        var h2 = document.createElement("h2");
-        h2.innerHTML = searchResults.query.search[i].title;
-        searchList.appendChild(h2);
+        // Displays Wikipedia article title as a URL
+        var url = document.createElement("a");
+        url.href = buildWikiURL(searchResults.query.search[i].title);
+        url.target = "_blank";
+        url.innerHTML = searchResults.query.search[i].title;
+		url.setAttribute("style", "font-size: 180%"); 
+        searchList.appendChild(url);
 
         // Displays article snippet
         var p = document.createElement("p");
         p.innerHTML = searchResults.query.search[i].snippet;
         searchList.appendChild(p);
 
-        // Displays URL to article on Wikipedia
-        var url = document.createElement("a");
-        url.href = buildWikiURL(searchResults.query.search[i].title);
-        url.target = "_blank";
-        url.innerHTML = "Read more on Wikipedia";
-        searchList.appendChild(url);
-
         // console logs for testing purposes
+        // console.log(searchResults.query.search);
         // console.log(searchResults.query.search[i].title);
         // console.log(searchResults.query.search[i].snippet);
         // console.log(buildWikiURL(searchResults.query.search[i].title))
