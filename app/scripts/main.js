@@ -58,34 +58,45 @@ function doWikiSearch() {
 // loops through to build and display the search results
 function displaySearch(searchResults) {
 
-    // call the function to hide / show divs here
-    changeDisplay();
+	// check if the search returns any results
+	if (searchResults.query.search.length === 0) {
+		
+		// if no results
+		return noSearchResults();
 
-    // variable used to append json to the placeholder element
-    var searchList = document.getElementById("placeholder");
+		// if results then search results are displayed 
+	} else {
 
-    // loop to display search results
-    for (var i = 0; i < searchResults.query.search.length; i++) {
+	    // call the function to hide / show divs here
+	    changeDisplay();
 
-        // Displays Wikipedia article title as a URL
-        var url = document.createElement("a");
-        url.href = buildWikiURL(searchResults.query.search[i].title);
-        url.target = "_blank";
-        url.innerHTML = searchResults.query.search[i].title;
-		url.setAttribute("style", "font-size: 180%"); 
-        searchList.appendChild(url);
+	    // variable used to append json to the placeholder element
+	    var searchList = document.getElementById("placeholder");
 
-        // Displays article snippet
-        var p = document.createElement("p");
-        p.innerHTML = searchResults.query.search[i].snippet;
-        searchList.appendChild(p);
+	    // loop to display search results
+	    for (var i = 0; i < searchResults.query.search.length; i++) {
 
-        // console logs for testing purposes
-        // console.log(searchResults.query.search);
-        // console.log(searchResults.query.search[i].title);
-        // console.log(searchResults.query.search[i].snippet);
-        // console.log(buildWikiURL(searchResults.query.search[i].title))
-    }
+	        // Displays Wikipedia article title as a URL
+	        var url = document.createElement("a");
+	        url.href = buildWikiURL(searchResults.query.search[i].title);
+	        url.target = "_blank";
+	        url.innerHTML = searchResults.query.search[i].title;
+            url.className = "title-anchor";
+	        searchList.appendChild(url);
+
+	        // Displays article snippet
+	        var p = document.createElement("p");
+	        p.innerHTML = searchResults.query.search[i].snippet;
+            p.className = "snippet-p";
+	        searchList.appendChild(p);
+
+	        // console logs for testing purposes
+	        // console.log(searchResults.query.search);
+	        // console.log(searchResults.query.search[i].title);
+	        // console.log(searchResults.query.search[i].snippet);
+	        // console.log(buildWikiURL(searchResults.query.search[i].title))
+	    }
+	}
 }
 
 // a hack as ajax doesn't return a URL, so this function builds
@@ -97,9 +108,15 @@ function buildWikiURL(searchTitle) {
     return wikiURL;
 }
 
-// once a search is made by the user, this function hides the search
-// and displays the results instead
+// once a search is made by the user, hides the search & displays the results instead
 function changeDisplay() {
     document.getElementById("search").remove();
     document.getElementById("display-results").style.display = "block";
+}
+
+// if a search returns no results, hides the search and displays a msg
+function noSearchResults() {
+    // console.log("Search returned no results");
+    document.getElementById("search").remove();
+    document.getElementById("no-results").style.display = "block"; 
 }

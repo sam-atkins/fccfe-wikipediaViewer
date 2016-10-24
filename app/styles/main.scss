@@ -26,6 +26,19 @@ body {
   display: none;
 }
 
+#no-results {
+  display: none;
+  margin-top: 20em;
+}
+
+.title-anchor {
+  font-size: 180%;
+}
+
+.snippet-p {
+  margin-bottom: 2em;
+}
+
 .browserupgrade {
   margin: 0.2em 0;
   background: #ccc;
